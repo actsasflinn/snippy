@@ -1,0 +1,13 @@
+<div id="language">
+  <h3>Top Languages</h3>
+  <% @top_languages.each do |language| %>
+    <% div_for(language) do %>
+      <%= link_to(language.name, language_snippets_path(language)) -%>
+      <%= total_for(language.snippets_count) -%>
+    <% end %>
+  <% end %>
+
+  <div class="all">
+    <%= link_to('All Languages', languages_path) %>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<div class="snippet">
+  <% form_for @snippet, :html => { :class => "clearfix" } do |form| -%>
+    <%= render :partial => 'form', :locals => { :form => form } %>
+  <%- end %>
+</div>

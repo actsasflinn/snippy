@@ -1,0 +1,35 @@
+<div id="snippet">
+  <div id="syntax" class="snippet">
+    <div id="themes" class="right">Themes:
+      <%- # TODO: User.current.default_theme -%>
+      <%= select_tag :theme, options_from_collection_for_select(Uv.themes, :to_s, :titleize, "all_hallows_eve") %>
+    </div>
+    <div class="line_numbers">
+      <%= line_numbers(@snippet.body.split("\n").size) %>
+    </div>
+    <%= @snippet.formatted_body %>
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+  <h2><%= @snippet.language.name %></h2>
+
+  <div class="date">
+    <span>Snipped</span><br />
+    <%= @snippet.created_at.strftime("%m/%d/%Y") %>
+  </div>
+
+  <div class="menu">
+    <%= link_to('Edit', edit_snippet_path(@snippet)) -%> |
+    <%= link_to('View', formatted_snippet_path(@snippet, :txt)) -%>
+  </div>
+<% end %>
+
+<!-- Theme Observers  -->
+<%= observe_field(:theme, :function => "$('content').className = $F('theme')") %>
+
+<script type="text/javascript">
+//<![CDATA[
+Event.observe(window, 'load', function(element, value) {$('content').className = $F('theme')})
+//]]>
+</script>

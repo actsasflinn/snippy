@@ -1,0 +1,28 @@
+== About Snippy
+
+Snippy is an open source clone of Josh Goebel's Pastie.
+
+A lot of Pastie users (including me) wanted a private version. Snippy fills that void - enjoy.
+
+=== Author
+
+It was written by Flinn Mueller using Ruby on Rails 2.1 as a weekend project. I felt like one of the best features of Pastie is code highlighting so I made it a priority. Code highlighting is accomplished using a custom renderer with Ultraviolet. The Thinking Sphinx plugin has been on my radar for a little while now so I felt like it was a good time to throw that in.
+
+=== On Github
+
+Git has also been on my radar for a little while. So I figured I would host the project at Github - everyone wins. Get the source on Github.
+link:https://github.com/actsasflinn/snippy/tree/master
+
+=== Install
+
+ 1. git clone git@github.com:actsasflinn/snippy.git
+ 2. cd snippy
+ 3. cp config/database.yml.example config/database.yml
+ 4. rake db:migrate
+ 5. rake db:bootstrap
+ 6. rake thinking_sphinx:configure
+ 7. rake thinking_sphinx:index
+ 8. rake thinking_sphinx:start
+ 9. ./script/server
+10. Start Snipping
+
