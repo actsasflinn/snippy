@@ -15,14 +15,15 @@ link:https://github.com/actsasflinn/snippy/tree/master
 
 === Install
 
- 1. git clone git@github.com:actsasflinn/snippy.git
+ 1.  git clone git@github.com:actsasflinn/snippy.git
  2. cd snippy
  3. cp config/database.yml.example config/database.yml
- 4. rake db:migrate
- 5. rake db:bootstrap
- 6. rake thinking_sphinx:configure
- 7. rake thinking_sphinx:index
- 8. rake thinking_sphinx:start
- 9. ./script/server
-10. Start Snipping
+ 4. rake db:create
+ 5. rake db:migrate
+ 6. rake bootstrap
+ 7. rake thinking_sphinx:configure
+ 8. rake thinking_sphinx:index
+ 9. rake thinking_sphinx:start
+10. ./script/server
+11. Start Snipping link:http://0.0.0.0:3000/
 
