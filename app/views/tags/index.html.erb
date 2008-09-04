@@ -1,0 +1,15 @@
+<div id="tags_page">
+  <span class="right"><%= will_paginate(@tags) -%></span>
+
+  <h1><%=h @tag.blank? ? 'All Tags' : @tag.name %>
+  <%= total_for(@tags.total_entries) -%></h1>
+
+  <div id="tags">
+  <% @tags.each do |tag| %>
+    <% div_for(tag) do %>
+      <%= link_to(tag.name, tag_snippets_path(tag)) -%>
+      <%= total_for(tag.taggings_count) -%>
+    <% end %>
+  <% end %>
+  </div>
+</div>

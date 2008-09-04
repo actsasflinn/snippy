@@ -8,4 +8,8 @@ module ApplicationHelper
     count.times{ |i| lines << content_tag(:span, i + 1) }
     lines.join(tag(:br))
   end
+
+  def tag_score_class(score)
+    "tag_#{score}"
+  end
 end

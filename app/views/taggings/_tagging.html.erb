@@ -1,0 +1,5 @@
+<% div_for(tagging) do %>
+  <%= link_to_remote('-', :url => tagging_path(tagging), :method => :delete, :html => { :class => "remove" }) %>
+  <%= link_to(tagging.tag.name, tag_snippets_path(tagging.tag), :class => tag_score_class(tagging.tag.score)) %>
+  <%= total_for(tagging.tag.taggings_count) -%>
+<% end %>

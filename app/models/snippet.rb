@@ -10,11 +10,14 @@ class Snippet < ActiveRecord::Base
   # Plugins
   define_index do
     indexes :body
-    indexes language.name, :as => :name
+    indexes language.name, :as => :language
+    indexes tags.name, :as => :tag
   end
 
   # Relationships
   belongs_to :language, :counter_cache => true
+  has_many :taggings
+  has_many :tags, :through => :taggings
 
   # Validations
   validates_length_of :body, :minimum => 1
@@ -22,6 +25,7 @@ class Snippet < ActiveRecord::Base
 
   # Scopes
   named_scope :language, lambda{ |language_id| { :conditions => language_id.blank? ? nil : { :language_id => language_id } } }
+  named_scope :tag, lambda{ |tag_id| { :conditions => tag_id.blank? ? nil : { "taggings.tag_id" => tag_id } } }
 
   # Callbacks
   before_save :format_body
