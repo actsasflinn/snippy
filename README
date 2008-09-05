@@ -15,15 +15,17 @@ link:http://github.com/actsasflinn/snippy/tree/master
 
 === Install
 
- 1.  git clone git://github.com/actsasflinn/snippy.git
+ 1. git clone git://github.com/actsasflinn/snippy.git
  2. cd snippy
  3. cp config/database.yml.example config/database.yml
- 4. rake db:create
- 5. rake db:migrate
- 6. rake bootstrap
- 7. rake thinking_sphinx:configure
- 8. rake thinking_sphinx:index
- 9. rake thinking_sphinx:start
-10. ./script/server
-11. Start Snipping link:http://0.0.0.0:3000/
+ 4. sudo apt-get install libonig2 libonig-dev
+ 5. rake gems:install
+ 6. rake db:create
+ 7. rake db:migrate
+ 8. rake bootstrap
+ 9. rake thinking_sphinx:configure
+10. rake thinking_sphinx:index
+11. rake thinking_sphinx:start
+12. ./script/server
+13. Start Snipping http://0.0.0.0:3000/
 
