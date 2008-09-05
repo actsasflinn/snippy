@@ -11,11 +11,11 @@ It was written by Flinn Mueller using Ruby on Rails 2.1 as a weekend project. I 
 === On Github
 
 Git has also been on my radar for a little while. So I figured I would host the project at Github - everyone wins. Get the source on Github.
-link:https://github.com/actsasflinn/snippy/tree/master
+link:http://github.com/actsasflinn/snippy/tree/master
 
 === Install
 
- 1.  git clone git@github.com:actsasflinn/snippy.git
+ 1.  git clone git://github.com/actsasflinn/snippy.git
  2. cd snippy
  3. cp config/database.yml.example config/database.yml
  4. rake db:create
