@@ -23,6 +23,16 @@
     <%= link_to('Edit', edit_snippet_path(@snippet)) -%> |
     <%= link_to('View', formatted_snippet_path(@snippet, :txt)) -%>
   </div>
+
+  <div id="taggings">
+    <h3 id="taggings_count"><%= pluralize(@snippet.taggings_count, 'Tags') %></h3>
+    <%= render :partial => 'taggings/tagging', :collection => @snippet.taggings %>
+  </div>
+
+  <fieldset id="add_tag">
+    <legend>Add Tag</legend>
+    <%= render :partial => "taggings/new", :locals => { :snippet_id => @snippet.id } %>
+  </fieldset>
 <% end %>
 
 <!-- Theme Observers  -->

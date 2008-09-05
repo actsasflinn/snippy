@@ -12,6 +12,7 @@
   <![endif]-->
 
   <%= javascript_include_tag :defaults %>
+  <%= auto_discovery_link_tag(:rss, { :controller => 'snippets', :format => :rss }) %>
 </head>
 <body>
   <div id="header">

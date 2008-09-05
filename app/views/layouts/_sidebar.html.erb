@@ -11,3 +11,17 @@
     <%= link_to('All Languages', languages_path) %>
   </div>
 </div>
+
+<div id="top_tags">
+  <h3>Top Tags</h3>
+  <% @top_tags.each do |tag| %>
+    <% div_for(tag) do %>
+      <%= link_to(tag.name, tag_snippets_path(tag)) -%>
+      <%= total_for(tag.taggings_count) -%>
+    <% end %>
+  <% end %>
+
+  <div class="all">
+    <%= link_to('All Tags', tags_path) %>
+  </div>
+</div>

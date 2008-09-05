@@ -105,7 +105,7 @@ h1 {
 
 /* Show All Snippets */
 
-#snippets_page, #languages_page, #page {
+#snippets_page, #languages_page, #tags_page, #page {
   padding:30px;
   background:#fff;
 }
@@ -193,4 +193,29 @@ h1 {
 }
 #themes select {
   font-size:1em;
+}
+
+/* Tags */
+
+#add_tag {
+  margin:20px 0;
+  border:1px solid #fff;
+}
+#new_tagging {
+  margin:10px 0;
+}
+#new_tagging input[type=text] {
+  width:125px;
+  margin:0;
+}
+a.remove {
+  text-decoration:none;
+}
+.tag_5,
+.tag_6,
+.tag_7,
+.tag_8,
+.tag_9,
+.tag_10 {
+  font-weight:bold;
 }

@@ -3,15 +3,17 @@ class SnippetsController < ApplicationController
   # GET /snippets.xml
   def index
     if params[:q].blank?
-      @snippets = Snippet.language(params[:language_id]).paginate(:page => params[:page], :include => :language, :order => 'snippets.created_at desc')
+      @snippets = Snippet.language(params[:language_id]).tag(params[:tag_id]).paginate(:page => params[:page], :include => [:taggings, :language], :order => 'snippets.created_at desc')
     else
-      @snippets = Snippet.search params[:q]
+      @snippets = Snippet.search(params[:q]).compact
     end
 
     @language = Language.find(params[:language_id]) unless params[:language_id].blank?
+    @tag = Tag.find(params[:tag_id]) unless params[:tag_id].blank?
 
     respond_to do |format|
       format.html # index.html.erb
+      format.rss  # index.rss.builder
       format.xml  { render :xml => @snippets }
       format.json { render :json => @snippets, :callback => params[:callback] }
     end

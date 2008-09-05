@@ -2,8 +2,9 @@
   <span class="right"><%= will_paginate(@snippets) -%></span>
 
   <h1><%=h @language.name unless @language.blank? -%>
-      <%= "All" if @language.blank? && params[:q].blank? %>
-      Snippets <%= "(&lsquo;#{h(params[:q])}&rsquo;)" unless params[:q].blank? %>
+      <%= "All" if @language.blank? && @tag.blank? && params[:q].blank? %>
+      Snippets <%= "(#{h(@tag.name)})" unless @tag.blank? %>
+      <%= "(&lsquo;#{h(params[:q])}&rsquo;)" unless params[:q].blank? %>
       <%= total_for(@snippets.total_entries) -%></h1>
 
   <% @snippets.each do |snippet| %>
