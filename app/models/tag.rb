@@ -1,7 +1,10 @@
 class Tag < ActiveRecord::Base
+  include Cacheable
   include ActionView::Helpers::SanitizeHelper
 
   # Plugins
+  @@cache_records = true
+
   define_index do
     indexes :name
   end

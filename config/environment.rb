@@ -78,3 +78,6 @@ module WillPaginate
     end
   end
 end
+
+# Unless otherwise noted expire caches in 30 minutes
+Rails.cache.expires_in = 30.minutes

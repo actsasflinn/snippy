@@ -1,4 +1,6 @@
 class Snippet < ActiveRecord::Base
+  include Cacheable
+
   # Class Attributes
   cattr_accessor :per_page
   @@per_page = 10

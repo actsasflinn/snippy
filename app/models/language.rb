@@ -1,4 +1,9 @@
 class Language < ActiveRecord::Base
+  include Cacheable
+
+  # Plugins
+  @@cache_records = true
+
   # Relationships
   has_many :snippets
 
