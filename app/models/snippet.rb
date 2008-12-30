@@ -10,6 +10,7 @@ class Snippet < ActiveRecord::Base
   attr_protected :formatted_body
 
   # Plugins
+  acts_as_snook
   define_index do
     indexes :body
     indexes language.name, :as => :language
