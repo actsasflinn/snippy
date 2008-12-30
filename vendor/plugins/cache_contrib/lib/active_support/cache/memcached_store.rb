@@ -3,6 +3,10 @@ require 'memcached'
 module ActiveSupport
   module Cache
     class MemcachedStore < Store
+      # TODO: Remove these if they ever make it into core
+      include ActiveSupport::Cache::Patches::AutoLoadMissingConstants
+      include ActiveSupport::Cache::Patches::DefaultExpiresIn
+
       attr_reader :addresses
 
       def initialize(*addresses)
