@@ -174,5 +174,6 @@ module Cacheable
   # Reset cache for all records after save, warning!
   def after_save
     self.cache_record(:force => true) unless self.class.cache_records
+    self.expire_record
   end
 end
