@@ -3,9 +3,9 @@ class SnippetsController < ApplicationController
   # GET /snippets.xml
   def index
     if params[:q].blank?
-      @snippets = Snippet.language(params[:language_id]).tag(params[:tag_id]).cached_paginate(:page => params[:page], :include => [:taggings, :language], :order => 'snippets.created_at desc')
+      @snippets = Snippet.language(params[:language_id]).tag(params[:tag_id]).paginate(:page => params[:page], :include => [:taggings, :language], :order => 'snippets.created_at desc')
     else
-      @snippets = Snippet.cached_search(params[:q]).compact
+      @snippets = Snippet.search(params[:q]).compact
     end
 
     @language = Language[params[:language_id]] unless params[:language_id].blank?
