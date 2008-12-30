@@ -31,6 +31,7 @@ class Snippet < ActiveRecord::Base
   named_scope :tag, lambda{ |tag_id| { :conditions => tag_id.blank? ? nil : { "taggings.tag_id" => tag_id } } }
 
   # Callbacks
+  before_validation_on_update :calculate_snook_score
   before_save :format_body
   before_save :format_preview
 
