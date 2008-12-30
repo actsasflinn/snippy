@@ -35,7 +35,7 @@ module ActiveSupport
 
       def delete(key, options = nil)
         super
-        response = @data.delete(key, expires_in(options))
+        response = @data.delete(key)
         response == nil
       rescue Memcached::Error => e
         logger.error("Memcached::Error (#{e}): #{e.message}")
