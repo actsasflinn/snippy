@@ -109,7 +109,7 @@ module Cacheable
     #   => 'Product/first/sale'
     #
     def scope_cache_key(key, scope = self)
-      ActiveSupport::Cache.expand_cache_key(key, scope)
+      ActiveSupport::Cache.expand_cache_key(key.to_s, scope)
     end
 
     # paramaterized key from method arguments, scoped to the class
