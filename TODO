@@ -1,0 +1,20 @@
+Snippets
+--------
+To be on par with Rails
+1. Add Better Formatting for Views
+2. Add Source Code Formatting, I'm expecting to use hightlight.js
+   or something similar instead of ultraviolet (which is a pita to install).
+3. Add Search Functionality
+
+Tags
+--------
+Implement Tags and Taggings for Snippets
+
+Caching
+--------
+Port cachable plugin to merb
+
+Spam
+--------
+Port acts_as_snook to Datamapper
+
