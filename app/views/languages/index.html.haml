@@ -1,0 +1,10 @@
+%div#languages_page
+  %span.right
+    = will_paginate(@languages)
+
+  %h1
+    =h @language.blank? ? 'All Languages' : @language.name
+
+  - @languages.each do |language|
+    %div{ :id => "language_#{language.id}", :class => "language" }
+      = link_to(language.name, url(:languages))

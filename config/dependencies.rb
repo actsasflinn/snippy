@@ -23,4 +23,6 @@ dependency "dm-types", dm_gems_version
 dependency "dm-validations", dm_gems_version  
 
 dependency "merb_datamapper", merb_gems_version
-dependency "do_sqlite3" # If using another database, replace this
+dependency "do_mysql"
+
+dependency "will_paginate", "2.5.0"

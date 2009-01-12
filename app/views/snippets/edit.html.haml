@@ -1,0 +1,15 @@
+%h1
+  Snippets controller, edit action
+%p
+  Edit this file in
+  %tt
+    app/views/snippets/edit.html.erb
+= error_messages_for @snippet
+
+= form_for(@snippet, :action => url(:snippet, @snippet)) do
+  %p
+    = submit "Update"
+
+= link_to 'Show', url(:snippet, @snippet)
+|
+= link_to 'Back', url(:snippets)

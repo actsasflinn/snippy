@@ -1,0 +1,10 @@
+%div#language
+  %h3
+    Languages
+
+  - @sidebar_languages.each do |language|
+    %div{ :id => "language_#{language.id}", :class => "language" }
+      = link_to language.name, url(:language_snippets, language)
+
+  %div.all
+    = link_to 'All Languages', url(:languages)

@@ -1,0 +1,7 @@
+/* This would preferable go in an IE specific stylesheet */
+/* \*/
+* html .clearfix {
+	height:1%;
+	zoom:1;
+}
+/**/

@@ -1,0 +1,3 @@
+%div.snippet
+  = form_for @snippet, :action => url(:snippets), :class => "clearfix" do |form|
+    = partial 'form', :locals => { :form => form }

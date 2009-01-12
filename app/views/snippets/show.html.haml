@@ -1,0 +1,27 @@
+%div#snippet
+  %div#syntax.snippet
+    %div#themes.right
+      Themes:
+      - # TODO: User.current.default_theme
+      = select :theme, :collection => []
+
+    %div.line_numbers
+      = line_numbers(@snippet.body.split("\n").size)
+
+    %pre
+      = @snippet.body
+
+= throw_content :for_sidebar do
+  %h2
+    = @snippet.language.name # OPTIMIZE: failure point with bad data
+
+  %div.date
+    %span
+      Snipped
+      <br />
+    = @snippet.created_at.strftime("%m/%d/%Y")
+
+  %div.menu
+    = link_to 'Edit', url(:edit_snippet, @snippet)
+    |
+    = link_to 'View', url(:snippet, @snippet, :format => :txt)

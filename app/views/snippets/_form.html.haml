@@ -1,0 +1,8 @@
+%span.right
+  Language:
+  = select :language_id, :collection => languages, :text_method => :name, :value_method => :id
+
+= text_area :body, :rows => 35
+
+<br/>
+= submit 'Save'

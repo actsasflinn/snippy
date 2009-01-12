@@ -1,0 +1,22 @@
+%div#snippets_page.previews
+  %span.right
+    = will_paginate(@snippets)
+
+  %h1
+    =h @language.name unless @language.blank?
+    = "All" if @language.blank? && @tag.blank? && params[:q].blank?
+    Snippets 
+    = "(&lsquo;#{h(params[:q])}&rsquo;)" unless params[:q].blank?
+    = total_for(@snippets.total_entries)
+
+  - @snippets.each do |snippet|
+    %div{ :id => "snippet_#{snippet.id}", :class => "snippet clearfix" }
+      %span.right
+        = time_ago_in_words(snippet.created_at) + ' ago'
+      = link_to 'View more', url(:snippet, snippet)
+      = total_for snippet.body.split("\n").size, 'line'
+      %div.line_numbers
+        = line_numbers(snippet.preview.split("\n").size)
+
+      %pre
+        = snippet.preview

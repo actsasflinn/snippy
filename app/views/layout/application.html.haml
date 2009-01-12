@@ -2,8 +2,39 @@
 %html{ html_attrs("en_us") }
   %head
     %title
-      Fresh Merb App
+      = title
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "content-type" }/
-    %link{ :href => "/stylesheets/master.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }/
+    %link{ :href => "/stylesheets/clearfix.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }/
+    %link{ :href => "/stylesheets/screen.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }/
+
+    <!--[if IE]>
+    %link{ :href => "/stylesheets/clearfix_ie.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }/
+    <![endif]-->
+
+    %script{ :src => "/javascripts/jquery.js", :type => "text/javascript", :charset => "utf-8" }
   %body
-    = catch_content :for_layout
+    %div#header
+      %h1
+        = link_to title, '/'
+      %ul#menu
+        %li
+          = link_to 'New', url(:new_snippet)
+        %li
+          = link_to 'Snippets', url(:snippets)
+
+        %li
+          = link_to 'Search', url(:snippets), :onclick => "$('#search').show();$('#q').focus()"
+
+        %li#search{ :style => "display:none" }
+          %form{ :action => url(:snippets), :method => "get" }
+            = text_field :name => 'q', :id => 'q', :value => h(params[:q]), :size => 15
+        %li
+          = link_to 'About', 'about_snippets'
+    %div#content
+      = catch_content :for_layout
+
+    %div#sidebar
+      = @content_for_sidebar.blank? ? partial('layout/sidebar') : catch_content(:for_sidebar)
+
+    %div#footer.clearfix
+      Snippy is heavily inspired by <a href="http://pastie.org/">Pastie</a>.
