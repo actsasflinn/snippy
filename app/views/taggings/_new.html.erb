@@ -1,5 +1,0 @@
-<% remote_form_for(:tagging, :url => taggings_path, :html => { :id => 'new_tagging', :class => "clearfix" }) do |form| %>
-  <%= form.hidden_field :snippet_id, :value => snippet_id %>
-  <%= text_field_tag :name %>
-  <%= form.submit 'New' %>
-<% end %>

@@ -1,6 +1,0 @@
-<span class="right">
-  Language:
-  <%= form.collection_select :language_id, Language.all(:order => 'name'), :id, :name %>
-</span>
-<%= form.text_area :body, :rows => 35 %>
-<br/><%= form.submit 'Save' %>
