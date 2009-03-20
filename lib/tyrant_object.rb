@@ -12,16 +12,34 @@ module TyrantObject
 
   module ClassMethods
     def [](id)
-      record = $tyrant[id]
+      record = tyrant[id]
       new(record) unless record.nil?
     end
 
     def []=(*args)
       value = args.pop
       value['id'] = args.first || value['id'] # if there is a first argument use it
-      value['id'] ||= $tyrant.genuid         # if both the key and :id are blank make one
-      $tyrant[value['id']] = value.to_h
+      value['id'] ||= tyrant.genuid         # if both the key and :id are blank make one
+      tyrant[value['id']] = value.to_h
       value
+    end
+
+    def paginate(options = {})
+      page = (options.delete(:page) || 1).to_i
+      limit = 20
+      offset = (page - 1) * 20
+      return [] if offset >= count
+      last = offset + (limit - 1)
+      page_keys = tyrant.keys.slice(offset..last)
+      page_keys.collect{ |key| tyrant[key] }
+    end
+
+    def method_missing(name, *args, &block)
+      if tyrant.methods.include?(name.id2name)
+        tyrant.send(name, *args, &block)
+      else
+        super
+      end
     end
   end
 

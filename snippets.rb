@@ -1,13 +1,13 @@
-require 'rubygems'
-require 'sinatra'
 require 'tokyo_tyrant'
 require 'lib/tyrant_object'
 require 'models/snippet'
 
-$tyrant = TokyoTyrant::Table.new('127.0.0.1', 1978)
+set :run, false
+set :environment, :production
+disable :logging
 
 get '/' do
-  'Snippets'
+  Snippet.paginate(:page => params[:page]).to_json
 end
 
 get '/:id' do
