@@ -1,3 +1,5 @@
+require 'uri'
+
 class Snippet
   include TyrantObject
 
@@ -9,6 +11,6 @@ class Snippet
     :body => String,
     :author => String,
     :email => String,
-    :url => String
+    :url => URI
   }
 end
