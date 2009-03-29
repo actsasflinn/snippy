@@ -12,10 +12,8 @@ class Snippet
     :author => String,
     :email => String,
     :url => URI,
-    :is_spam => proc{ |v|
-      return true if v.is_a?(TrueClass)
-      return false if v.is_a?(FalseClass)
-      v.to_i == 0 ? false : true
-    }
+    :is_spam => TyrantObject::boolean,
+    :created_at => TyrantObject::time,
+    :updated_at => TyrantObject::time
   }
 end

@@ -10,6 +10,21 @@ module TyrantObject
     base.extend(ClassMethods)
   end
 
+  def self.boolean
+    proc{ |v|
+      return true if v.is_a?(TrueClass)
+      return false if v.is_a?(FalseClass)
+      v.to_i == 0 ? false : true
+    }
+  end
+
+  def self.time
+    proc{ |v|
+      return v if v.is_a?(Time)
+      v.nil? ? Time.now : Time.parse(v)
+    }
+  end
+
   module ClassMethods
     def [](id)
       record = tyrant[id]
@@ -45,7 +60,7 @@ module TyrantObject
     end
   end
 
-  def initialize(attributes)
+  def initialize(attributes = {})
     @attributes = Mash.new
     assign_attributes(attributes)
     self.class[] = self if new_record?
