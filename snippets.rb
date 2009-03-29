@@ -20,7 +20,6 @@ post '/' do
   redirect snippet_url(snippet)
 end
 
-# hmmm this is starting to look a lot like activerecord / datamapper
 put '/:id' do
   snippet = Snippet[params[:id]]
   snippet.attributes = params[:snippet]

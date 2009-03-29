@@ -19,7 +19,7 @@ module TyrantObject
     def []=(*args)
       value = args.pop
       value['id'] = args.first || value['id'] # if there is a first argument use it
-      value['id'] ||= tyrant.genuid         # if both the key and :id are blank make one
+      value['id'] ||= tyrant.genuid           # if both the key and :id are blank make one
       tyrant[value['id']] = value.to_h
       value
     end
@@ -30,8 +30,10 @@ module TyrantObject
       offset = (page - 1) * 20
       return [] if offset >= count
       last = offset + (limit - 1)
-      page_keys = tyrant.keys.slice(offset..last)
-      page_keys.collect{ |key| tyrant[key] }
+#      page_keys = tyrant.keys.slice(offset..last)
+#      page_keys.collect{ |key| tyrant[key] }
+      recs = tyrant.mget(offset..last)
+      recs.sort{ |x,y| x[0] <=> y[0] }.collect{ |row| row[1] }
     end
 
     def method_missing(name, *args, &block)
@@ -69,7 +71,15 @@ module TyrantObject
 
   def []=(attr, v)
     raise "No property! '#{attr}'" if columns[attr].nil?
-    @attributes[attr] = v.nil? ? nil : send(columns[attr].name, v)
+    unless columns[attr].respond_to?(:call)
+      if v.is_a?(columns[attr])
+        @attributes[attr] = v
+      else
+        @attributes[attr] = v.nil? ? nil : send(columns[attr].name, v)
+      end
+    else
+      @attributes[attr] = columns[attr].call(v)
+    end
   end
 
   # probably should be class level
