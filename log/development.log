@@ -1,0 +1,80 @@
+  [1m[36m (214.8ms)[0m  [1mCREATE TABLE `languages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `slug` varchar(255), `snippets_count` int(11) DEFAULT 0, `created_at` datetime, `updated_at` datetime, `syntax` varchar(255)) ENGINE=InnoDB[0m
+  [1m[35m (217.8ms)[0m  CREATE TABLE `snippets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `body` text, `formatted_body` text, `formatted_preview` text, `language_id` int(11), `theme` varchar(255) DEFAULT 'clean', `taggings_count` int(11) DEFAULT 0, `created_at` datetime, `updated_at` datetime, `author` varchar(255), `email` varchar(255), `url` varchar(255), `spam_status` varchar(255)) ENGINE=InnoDB
+  [1m[36m (99.5ms)[0m  [1mCREATE TABLE `taggings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `tag_id` int(11), `snippet_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (111.4ms)[0m  CREATE TABLE `tags` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `taggings_count` int(11) DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (198.5ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (97.7ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20120226080057')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20080705041906')[0m
+  [1m[35m (1.9ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20080705042807')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20080705043733')[0m
+  [1m[35m (1.7ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20080705043830')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20081230014455')[0m
+  [1m[35m (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'Shell Script (Bash)', 'shell-unix-generic', 0, 'source.shell', '2012-02-27 02:50:59')
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'Ruby (on Rails)', 'ruby_on_rails', 0, 'source.ruby.rails', '2012-02-27 02:50:59')[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'SQL', 'sql', 0, 'source.sql', '2012-02-27 02:50:59')
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'SQL (Rails)', 'sql_rails', 0, 'source.sql.ruby', '2012-02-27 02:50:59')[0m
+  [1m[35m (1.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'CSS', 'css', 0, 'source.css', '2012-02-27 02:50:59')
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'Plain text', 'plain_text', 0, 'text.plain', '2012-02-27 02:50:59')[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'Ruby', 'ruby', 0, 'source.ruby', '2012-02-27 02:50:59')
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'HTML (Rails)', 'html_rails', 0, 'text.html.ruby', '2012-02-27 02:50:59')[0m
+  [1m[35m (1.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'HTML / XML', 'html', 0, 'text.html.basic', '2012-02-27 02:50:59')
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'JavaScript', 'javascript', 0, 'source.js', '2012-02-27 02:50:59')[0m
+  [1m[35m (1.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'Java', 'java', 0, 'source.java', '2012-02-27 02:50:59')
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'Diff', 'diff', 0, 'source.diff', '2012-02-27 02:50:59')[0m
+  [1m[35m (2.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'YAML', 'yaml', 0, 'source.yaml', '2012-02-27 02:50:59')
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'Ruby (Experimental)', 'ruby_experimental', 0, 'source.ruby.experimental', '2012-02-27 02:50:59')[0m
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'Regexp', 'regexp', 0, 'source.regexp', '2012-02-27 02:50:59')
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'JSON', 'json', 0, 'source.json', '2012-02-27 02:50:59')[0m
+  [1m[35m (1.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'JavaScript (jQuery)', 'jquery_javascript', 0, 'source.js.jquery', '2012-02-27 02:50:59')
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'JavaScript (Prototype)', 'javascript_+_prototype', 0, 'source.js.prototype', '2012-02-27 02:50:59')[0m
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'Comma Separated Values', 'csv', 0, 'text.tabular.csv', '2012-02-27 02:50:59')
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'Apache', 'apache', 0, 'source.apache-config', '2012-02-27 02:50:59')[0m
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'SSH Config', 'ssh-config', 0, 'source.ssh-config', '2012-02-27 02:50:59')
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `languages` (`created_at`, `name`, `slug`, `snippets_count`, `syntax`, `updated_at`) VALUES ('2012-02-27 02:50:59', 'Textile', 'textile', 0, 'text.html.textile', '2012-02-27 02:50:59')[0m
+  [1m[35m (1.3ms)[0m  COMMIT

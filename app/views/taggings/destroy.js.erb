@@ -1,0 +1,4 @@
+jQuery('#<%= dom_id(@tagging) %>').fadeOut('slow', function() {
+  jQuery('#taggings_count').html('<%= pluralize(@snippet.taggings.count, "Tag") %>');
+  jQuery('#tagging_name').val('<%= escape_javascript(@tagging.tag.name) %>');
+});

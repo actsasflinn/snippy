@@ -1,7 +1,7 @@
 <div id="language">
   <h3>Top Languages</h3>
   <% @top_languages.each do |language| %>
-    <% div_for(language) do %>
+    <%= div_for(language) do %>
       <%= link_to(language.name, language_snippets_path(language)) -%>
       <%= total_for(language.snippets_count) -%>
     <% end %>
@@ -15,7 +15,7 @@
 <div id="top_tags">
   <h3>Top Tags</h3>
   <% @top_tags.each do |tag| %>
-    <% div_for(tag) do %>
+    <%= div_for(tag) do %>
       <%= link_to(tag.name, tag_snippets_path(tag)) -%>
       <%= total_for(tag.taggings_count) -%>
     <% end %>

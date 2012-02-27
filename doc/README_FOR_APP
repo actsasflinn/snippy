@@ -1,2 +1,32 @@
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+== About Snippy
+
+Snippy is an open source clone of Josh Goebel's Pastie.
+
+A lot of Pastie users (including me) wanted a private version. Snippy fills that void - enjoy.
+
+=== Author
+
+It was written by Flinn Mueller using Ruby on Rails 2.1 as a weekend project. I felt like one of the best features of Pastie is code highlighting so I made it a priority. Code highlighting is accomplished using a custom renderer with Ultraviolet. The Thinking Sphinx plugin has been on my radar for a little while now so I felt like it was a good time to throw that in.
+
+Snippy has most recently been updated to Rails 3.2.1 and Ruby 1.9.
+
+=== On Github
+
+Git has also been on my radar for a little while. So I figured I would host the project at Github - everyone wins. Get the source on Github.
+link:http://github.com/actsasflinn/snippy
+
+=== Install
+
+ 1. git clone git://github.com/actsasflinn/snippy.git
+ 2. cd snippy
+ 3. cp config/database.yml.example config/database.yml
+ 4. Install Oniguruma (Ruby 1.8.x only)
+ 	a. sudo apt-get install libonig2 libonig-dev # Linux
+ 	b. sudo brew install Oniguruma			 	 # Mac OS X
+ 5. bundle install
+ 6. rake db:setup
+ 7. rake thinking_sphinx:configure
+ 8. rake thinking_sphinx:index
+ 9. rake thinking_sphinx:start
+10. rails server
+11. Start Snipping http://0.0.0.0:3000/

@@ -1,0 +1,109 @@
+.essso_libre .EmbeddedSource {
+   background-color: #CE9065;
+}
+.essso_libre .LibraryObject {
+   font-weight: bold;
+   color: #6D79DE;
+}
+.essso_libre .Section {
+   font-style: italic;
+}
+.essso_libre .FunctionArgumentAndResultTypes {
+   color: #8B8E9C;
+}
+.essso_libre .TypeName {
+   text-decoration: underline;
+}
+.essso_libre .Number {
+   color: #44AA43;
+}
+.essso_libre {
+   background-color: #2A211C;
+   color: #BDAE9D;
+}
+.essso_libre .MarkupTagAttribute {
+   font-style: italic;
+}
+.essso_libre .LibraryVariable {
+   font-weight: bold;
+   color: #2F5FE0;
+}
+.essso_libre .line-numbers {
+   background-color: #C3DCFF;
+   color: #000000;
+}
+.essso_libre .FunctionParameter {
+   font-style: italic;
+}
+.essso_libre .MarkupTag {
+   color: #43A8ED;
+}
+.essso_libre .JsOperator {
+   color: #687687;
+}
+.essso_libre .InheritedClassName {
+   font-style: italic;
+}
+.essso_libre .StringInterpolation {
+   color: #2FE420;
+}
+.essso_libre .MarkupNameOfTag {
+   font-weight: bold;
+}
+.essso_libre .InvalidTrailingWhitespace {
+   background-color: #FFD0D0;
+}
+.essso_libre .LibraryConstant {
+   font-weight: bold;
+   color: #00AF0E;
+}
+.essso_libre .MarkupXmlDeclaration {
+   color: #8F7E65;
+}
+.essso_libre .processorDirective {
+   font-weight: bold;
+   color: #9AFF87;
+}
+.essso_libre .BuiltInConstant {
+   font-weight: bold;
+   color: #585CF6;
+}
+.essso_libre .MarkupDtd {
+   font-style: italic;
+}
+.essso_libre .Invalid {
+   background-color: #990000;
+   color: #FFFFFF;
+}
+.essso_libre .LibraryFunction {
+   font-weight: bold;
+   color: #7290D9;
+}
+.essso_libre .String {
+   color: #049B0A;
+}
+.essso_libre .UserDefinedConstant {
+   font-weight: bold;
+   color: #C5656B;
+}
+.essso_libre .Keyword {
+   font-weight: bold;
+   color: #43A8ED;
+}
+.essso_libre .MarkupDoctype {
+   color: #888888;
+}
+.essso_libre .FunctionName {
+   font-weight: bold;
+   color: #FF9358;
+}
+.essso_libre .processorLine {
+   color: #1A921C;
+}
+.essso_libre .Variable {
+   color: #318495;
+}
+.essso_libre .Comment {
+   color: #0066FF;
+   font-style: italic;
+}

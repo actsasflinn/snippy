@@ -6,7 +6,7 @@
 
   <div id="tags">
   <% @tags.each do |tag| %>
-    <% div_for(tag) do %>
+    <%= div_for(tag) do %>
       <%= link_to(tag.name, tag_snippets_path(tag)) -%>
       <%= total_for(tag.taggings_count) -%>
     <% end %>

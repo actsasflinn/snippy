@@ -5,7 +5,7 @@
   <%= total_for(@languages.total_entries) -%></h1>
 
   <% @languages.each do |language| %>
-    <% div_for(language) do %>
+    <%= div_for(language) do %>
       <%= link_to(language.name, language_snippets_path(language)) -%>
       <%= total_for(language.snippets_count, ' snippets') -%>
     <% end %>

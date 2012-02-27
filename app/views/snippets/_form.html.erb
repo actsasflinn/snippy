@@ -1,4 +1,7 @@
 <span class="right">
+  Theme:
+  <%= form.select :theme, themes.collect{ |t| [t.titleize, t.to_s] } %>
+
   Language:
   <%= form.collection_select :language_id, Language.all(:order => 'name'), :id, :name %>
 </span>

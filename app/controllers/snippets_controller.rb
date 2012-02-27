@@ -2,14 +2,14 @@ class SnippetsController < ApplicationController
   # GET /snippets
   # GET /snippets.xml
   def index
-    if params[:q].blank?
-      @snippets = Snippet.language(params[:language_id]).tag(params[:tag_id]).paginate(:page => params[:page], :include => [:taggings, :language], :order => 'snippets.created_at desc')
+    if params[:q].present?
+      @snippets = Snippet.search(params[:q], :page => params[:page])
     else
-      @snippets = Snippet.search(params[:q]).compact
+      @snippets = Snippet.language(params[:language_id]).tag(params[:tag_id]).paginate(:page => params[:page], :include => [:taggings, :language], :order => 'snippets.created_at desc')
     end
 
-    @language = Language[params[:language_id]] unless params[:language_id].blank?
-    @tag = Tag[params[:tag_id]] unless params[:tag_id].blank?
+    @language = Language.find(params[:language_id]) if params[:language_id].present?
+    @tag = Tag.find(params[:tag_id]) if params[:tag_id].present?
 
     respond_to do |format|
       format.html # index.html.erb
@@ -22,7 +22,7 @@ class SnippetsController < ApplicationController
   # GET /snippets/1
   # GET /snippets/1.xml
   def show
-    @snippet = Snippet[params[:id]]
+    @snippet = Snippet.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

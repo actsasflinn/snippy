@@ -1,6 +1,4 @@
 class Snippet < ActiveRecord::Base
-  include Cacheable
-
   # Class Attributes
   cattr_accessor :per_page
   @@per_page = 10
@@ -10,7 +8,6 @@ class Snippet < ActiveRecord::Base
   attr_protected :formatted_body
 
   # Plugins
-  acts_as_snook
   define_index do
     indexes :body
     indexes language.name, :as => :language
@@ -27,23 +24,26 @@ class Snippet < ActiveRecord::Base
   validates_presence_of :language_id
 
   # Scopes
-  named_scope :language, lambda{ |language_id| { :conditions => language_id.blank? ? nil : { :language_id => language_id } } }
-  named_scope :tag, lambda{ |tag_id| { :conditions => tag_id.blank? ? nil : { "taggings.tag_id" => tag_id } } }
+  scope :language, lambda{ |language_id| { :conditions => language_id.blank? ? nil : { :language_id => language_id } } }
+  scope :tag, lambda{ |tag_id| { :conditions => tag_id.blank? ? nil : { "taggings.tag_id" => tag_id } } }
 
   # Callbacks
-  before_validation_on_update :calculate_snook_score
   before_save :format_body
   before_save :format_preview
 
   def format_body
-    self.formatted_body = Uv.parse(self.body, "xhtml", self.language.slug, false, "clean")
+    self.formatted_body = Uv.parse(body, "xhtml", language.syntax, false, "clean")
   end
 
   def format_preview
-    self.formatted_preview = Uv.parse(self.preview, "xhtml", self.language.slug, false, "clean")
+    self.formatted_preview = Uv.parse(preview, "xhtml", language.syntax, false, "clean")
   end
 
   def preview
-    self.body.split("\n")[0..4].join("\n")
+    body.split("\n")[0..4].join("\n")
+  end
+
+  def theme
+    attributes['theme'] || DEFAULT_THEME
   end
 end

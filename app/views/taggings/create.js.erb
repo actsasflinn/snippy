@@ -1,0 +1,7 @@
+jQuery('#tagging_error').html('');
+jQuery('#taggings').append('<%= escape_javascript(render :partial => "tagging", :locals => { tagging: @tagging }) %>');
+
+jQuery('#<%= dom_id(@tagging) %>').fadeIn('slow', function() {
+  jQuery('#taggings_count').html('<%= pluralize(@snippet.taggings.count, "Tag") %>');
+  jQuery('#tagging_name').val('');
+});

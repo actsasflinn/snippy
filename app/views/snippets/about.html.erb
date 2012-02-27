@@ -7,25 +7,30 @@
 
   <h2>Author</h2>
 
-  <p>It was written by <a href="http://actsasflinn.com/articles/2008/09/03/snippy-a-pastie-clone">Flinn Mueller</a> using Ruby on Rails 2.1 as a weekend project.  I felt like one of the best features of Pastie is code highlighting so I made it a priority.  Code highlighting is accomplished using a custom renderer with <a href="http://ultraviolet.rubyforge.org/">Ultraviolet</a>.  The <a href="http://ts.freelancing-gods.com/">Thinking Sphinx</a> plugin has been on my radar for a little while now so I felt like it was a good time to throw that in.</p>
+  <p>It was written by <a href="http://actsasflinn.com/">Flinn Mueller</a> using Ruby on Rails 2.1 as a weekend project.  I felt like one of the best features of Pastie is code highlighting so I made it a priority.  Code highlighting is accomplished using a custom renderer with <a href="http://ultraviolet.rubyforge.org/">Ultraviolet</a>.  The <a href="http://ts.freelancing-gods.com/">Thinking Sphinx</a> plugin has been on my radar for a little while now so I felt like it was a good time to throw that in.</p>
+
+  <p>Snippy has most recently been updated to Rails 3.2.1 and Ruby 1.9.</p>
 
   <h2>On Github</h2>
 
-  <p>Git has also been on my radar for a little while.  So I figured I would host the project at Github - everyone wins.  Get the source on <a href="https://github.com/actsasflinn/snippy/tree/master">Github</a>.</p>
+  <p>Git has also been on my radar for a little while.  So I figured I would host the project at Github - everyone wins.  Get the source on <a href="https://github.com/actsasflinn/snippy/">Github</a>.</p>
 
   <h2>Install</h2>
 
   <ol>
-    <li>git clone git@github.com:actsasflinn/snippy.git</li>
+    <li>git clone git://github.com/actsasflinn/snippy.git</li>
     <li>cd snippy</li>
     <li>cp config/database.yml.example config/database.yml</li>
-    <li>rake db:create</li>
-    <li>rake db:migrate</li>
-    <li>rake bootstrap</li>
+    <li>Install Oniguruma (Ruby 1.8.x only)<br />
+      a. sudo apt-get install libonig2 libonig-dev # Linux<br />
+      b. sudo brew install Oniguruma               # Mac OS X
+    </li>
+    <li>bundle install</li>
+    <li>rake db:setup</li>
     <li>rake thinking_sphinx:configure</li>
     <li>rake thinking_sphinx:index</li>
     <li>rake thinking_sphinx:start</li>
-    <li>./script/server</li>
+    <li>rails server</li>
     <li><a href="http://0.0.0.0:3000/">Start Snipping</a></li>
   </ol>
 </div>

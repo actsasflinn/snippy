@@ -1,21 +1,28 @@
 <div id="snippets_page" class="previews">
-  <span class="right"><%= will_paginate(@snippets) -%></span>
+  <span class="right"><%= will_paginate(@snippets) %></span>
 
-  <h1><%=h @language.name unless @language.blank? -%>
-      <%= "All" if @language.blank? && @tag.blank? && params[:q].blank? %>
-      Snippets <%= "(#{h(@tag.name)})" unless @tag.blank? %>
-      <%= "(&lsquo;#{h(params[:q])}&rsquo;)" unless params[:q].blank? %>
-      <%= total_for(@snippets.total_entries) -%></h1>
+  <h1><%=h @language.name if @language.present? %>
+      <%= "All" if [@language, @tag, params[:q]].all?(&:blank?) %>
+      Snippets
+
+      <% if @tag.present? %>
+        (<%= @tag.name %>)
+      <% end %>
+
+      <% if params[:q].present? %>
+        (&lsquo;<%= params[:q] %>&rsquo;)
+      <% end %>
+      <%= total_for(@snippets.total_entries) %></h1>
 
   <% @snippets.each do |snippet| %>
-    <% div_for(snippet, :class => "clearfix") do %>
+    <%= div_for(snippet, :class => "clearfix") do %>
       <span class="right"><%= time_ago_in_words(snippet.created_at) %> ago</span>
-      <%= link_to('View more', snippet) -%>
-      <%= total_for(snippet.body.split("\n").size, 'line') -%>
+      <%= link_to('View more', snippet) %>
+      <%= total_for(snippet.body.split("\n").size, 'line') %>
       <div class="line_numbers">
-        <%= line_numbers(snippet.preview.split("\n").size) %>
+        <%=raw line_numbers(snippet.preview.split("\n").size) %>
       </div>
-      <%= snippet.formatted_preview %>
+      <%=raw snippet.formatted_preview %>
     <% end %>
   <% end %>
 </div>
